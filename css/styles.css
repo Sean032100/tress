@@ -1,6 +1,6 @@
 /*****************************************
 Table Of Contents:
-
+00. dashboard
 01. General Styles
 02. Preloader
 03. Navigation
@@ -17,6 +17,30 @@ Table Of Contents:
 14. Project Lightboxes
 ******************************************/
 
+/*********************/
+/*     dashboard     */
+/*********************/
+.powerimg{
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	width: 50%;
+}
+.addservicepics{
+    height: 75px;
+    width: 100px;
+
+}
+.boredkanaba{
+	border: solid rgb(72, 97, 126) 1px;
+}
+.spacing{
+	position: relative; 
+	padding-top: 30px;
+	padding-bottom: 30px;
+
+
+}
 
 /******************************/
 /*     01. General Styles     */
@@ -28,7 +52,7 @@ html {
 }
 
 body, p {
-	color: #008000; 
+	color: #4EA685; 
 	font: 400 1rem/1.5625rem "Open Sans", sans-serif;
 }
 
@@ -584,7 +608,7 @@ input[type='checkbox'] {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: #008000;
+	background: #4EA685;
 }
 
 .spinner {
@@ -771,7 +795,7 @@ input[type='checkbox'] {
 /*    04. Header     */
 /*********************/
 .header {
-	background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../images/financial-services.webp') center center no-repeat;
+	background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('financial-services.webp') center center no-repeat;
 	background-size: cover;
 }
 
@@ -838,7 +862,7 @@ main {
 }
 
 .photoprof_2 {
-	display: block;
+	display: inherit;
 	width: 100px;
 	height: 100px;
 	margin-top: -90px;
@@ -1075,9 +1099,18 @@ color: #888;
 	color: teal;
 	transform: scale(1.05);
 }
-@media (max-width:990px) {
+@media (max-width:768px) {
+	.navprof_2 {
+		display: block;
+		padding: 0;
+		margin-bottom: 50px;
+		width: 100%;
+	}
+
 	.navprof_2 li {
-		width: 25%;
+		text-align: center;
+		width: 45%;
+		font-size: 9pt;
 	}	
 }
 
@@ -1352,7 +1385,7 @@ a.back-to-top {
 	width: 2.625rem;
 	height: 2.625rem;
 	border-radius: 1.875rem;
-	background: #14bf98 url("../images/up-arrow.png") no-repeat center 47%;
+	background: #14bf98 url("up-arrow.png") no-repeat center 47%;
 	background-size: 1.125rem 1.125rem;
 	text-indent: -9999px;
 }
@@ -1363,7 +1396,7 @@ a:hover.back-to-top {
 
 
 /*****************************/
-/*     13. Media Queries     */
+/*     21. Media Queries     */
 /*****************************/	
 /* Min-width width 768px */
 @media (min-width: 768px) {
@@ -1381,9 +1414,14 @@ a:hover.back-to-top {
 	.navbar-custom {
 		padding: 2.125rem 1.5rem 2.125rem 2rem;
 		box-shadow: none;
-        background: transparent;
+		background: transparent;
 	}
 	
+
+	.navbar-brand.logo-text a{
+		font-size: 1px;
+	}
+
 	.navbar-custom .navbar-brand.logo-text {
 		color: #fff;
 	}
@@ -1968,6 +2006,7 @@ a:hover.back-to-top {
 	/* end of navigation */
 }
 /* end of min-width width 1200px */
+
 /**********************************/
 /*     14. Project Lightboxes     */
 /**********************************/
