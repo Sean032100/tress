@@ -13,16 +13,16 @@
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap&subset=latin-ext" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600&display=swap&subset=latin-ext" rel="stylesheet">
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/all.css" rel="stylesheet">
-    <link href="css/swiper.css" rel="stylesheet">
-	<link href="css/magnific-popup.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/mdb.min.css">     <!-- Material Design Bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">     <!-- Bootstrap core CSS -->
+    <link href="/public/css/bootstrap.css" rel="stylesheet">
+    <link href="/public/css/all.css" rel="stylesheet">
+    <link href="/public/css/swiper.css" rel="stylesheet">
+	<link href="/public/css/magnific-popup.css" rel="stylesheet">
+    <link href="/public/css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="/public/css/mdb.min.css">     <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">     <!-- Bootstrap core CSS -->
 	
 	<!-- Icon  -->
-    <link rel="icon" href="/TUPC Services/Images/tup.png">
+    <link rel="icon" href="/public/img/icon.svg">
 </head>
 <body data-spy="scroll" data-target=".fixed-top">
     <!-- Preloader -->
@@ -57,7 +57,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link page-scroll" href="#" data-toggle="modal" data-target="#modalLRForm">NOTIFICATIONS
-                        <span class="badge badge-danger ml-2">3</span></a>
+                        <span id="notifcount" class="badge badge-danger ml-2">3</span></a>
                 </li>
 
                 <li class="nav-item">
@@ -76,7 +76,7 @@
                 <!-- end of dropdown menu -->
 
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="/TUPC Services/CODES WITH CSS/Login/login-final.html">LOGOUT</a>
+                    <a class="nav-link page-scroll" href="/login/login.html">LOGOUT</a>
                 </li>
             </ul>
         </div>
@@ -315,7 +315,7 @@
                 <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
                     <!--Body-->
                     <div class="modal-body mb-1">
-                        <ul class="list-group-item btn-group-toggle" data-toggle="buttons">   
+                        <ul id="notiflist" class="list-group-item btn-group-toggle" data-toggle="buttons">   
                             <li class="btn form-check-label hoverable">
                                 <i class="fas fa-thumbs-up"></i>
                                 <input class="form-check-input text-left" type="radio""><a href="viewprofile.html" target="_blank">Sean Monacillo</a>
@@ -339,8 +339,7 @@
                     </div>
                     <!--Footer-->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-success btn-rounded waves-effect">Delete</button>
-                        <button type="button" class="btn btn-outline-success btn-rounded waves-effect">Delete All</button>
+                        <button type="button" class="btn btn-outline-success btn-rounded waves-effect" onclick="notifdel()">Delete All</button>
                         <button type="button" class="btn btn-outline-success btn-rounded waves-effect" data-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -350,7 +349,7 @@
                     <!--Body-->
                     <div class="modal-body mb-1">
                         <div class="list-group-item btn-group-toggle" data-toggle="buttons">   
-                            <label class="btn form-check-label hoverable">
+                            <label id="wdlist" class="btn form-check-label hoverable">
                                 <i class="fas fa-edit"></i>
                                 <input class="form-check-input text-left" type="radio""><a href="#">Sean Monacillo</a>
                                 - Your request has been completed. Please submit a feedback and rating in order to request again. 
@@ -373,15 +372,15 @@
     </div>
     <!--Notification and work verification-->
 
-    <!-- Fill Out Form(modal) -->
-    <div class="modal fade" id="elegantModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    <!-- Feedback(modal) -->
+    <div class="modal fade" id="elegantModalFormfeed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-dialog" role="document">
             <!--Content-->
             <div class="modal-content form-elegant">
                 <!--Header-->
                 <div class="modal-header text-center">
-                    <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Request Form</strong></h3>
+                    <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Work Done Verification</strong></h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -389,67 +388,39 @@
                 <!--Body-->
                 <div class="modal-body mx-4">
                     <div class="modal-title w-100 dark-grey-text font-weight-bold my-3">
-                        <p><strong>Please fill up requirement to start your request</strong> </p>
+                        <h6><strong>Note:</strong><i> Please submit a Feedback and Rating in order to Request again.</i></h6>
                     </div>
                     <div class="modal-title w-100 dark-grey-text font-weight-bold my-3">
-                        <h7><strong>Note:</strong><i> Once you submit, you cannot request again.
-                            You can only request once except when the job is done and you fill up 
-                            the feedback and rating form.
-                        </i></h7>
-                    </div>
+                        <h7>Please Fill Out Form</h7>
+                </div>
                 <!--Body-->
-                <form>
+                <form action="#" onsubmit="wdvdel();return false">
                     <div class="md-form form-sm">
-                        <i class="fas fa-user prefix"></i>
-                        <input type="text" id="fname" class="form-control validate form-control-sm" required>
-                        <label data-error="wrong" data-success="right" for="fname">Full Name</label>
-                    </div>
-                    <div class="md-form form-sm">
-                        <i class="fas fa-map-marker-alt prefix"></i>
-                        <input type="text" id="addr" class="form-control validate form-control-sm" required>
-                        <label data-error="wrong" data-success="right" for="Form-pass1">Address</label>
-                    </div>
-                    <div class="md-form form-sm">
-                        <i class="fas fa-mobile-alt prefix"></i>
-                        <input type="text" id="cont" class="form-control validate form-control-sm" required>
-                        <label data-error="wrong" data-success="right" for="cont">Contact Number</label>
-                    </div>
-                    <div class="md-form form-sm">
-                        <i class="far fa-envelope prefix"></i>
-                        <input type="email" id="mail" class="form-control validate form-control-sm" required>
-                        <label data-error="wrong" data-success="right" for="mail">Email Address</label>
-                    </div>
-                    <div class="md-form form-sm">
-                        <i class="fas fa-pencil-alt prefix"></i>
-                        <textarea type="text" id="desc" name="desc" placeholder="Please be Detailed as Possible:" class="md-textarea form-control" rows="2" required></textarea>
-                        <label for="desc">Describe the Service that you need</label><br>
-                    </div>
-                    <div>
-                        <h6>
-                            When would you like your Service to be delivered/done?
-                        </h6>
-                    </div>
-                    <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker">
-                        <i class="far fa-calendar-alt prefix"></i>
-                        <label for="when">Date</label>
-                        <input placeholder="Select date" type="date" id="when" class="form-control">
-                    </div>
-                    <div class="md-form form-sm">
-                        <i class="fas fa-hand-holding-usd prefix"></i>
-                        <label for="price">What is your budget for this service?</label><br>
-                        <input type="number" id="desc" name="price" placeholder="Pesos" class="form-control md-textarea" required></input>
+                        <i class="fas fa-pen prefix"></i>
+                        <textarea type="text" id="feedbck" name="desc" placeholder="Write Something..." class="form-control md-textarea" required></textarea>
+                        <label for="feedbck">Feedback:</label><br>
+                        <h6 class="mdb-main-label">Ratings: <i class="far fa-star"></i></h6>
+                        <div>
+                            <select class="browser-default custom-select" name="rate" id="rate" required></i>                      
+                                <option value="5"> 5 Star </option>
+                                <option value="4"> 4 Star </option>
+                                <option value="3"> 3 Star </option>
+                                <option value="2"> 2 Star </option>
+                                <option value="1"> 1 Star </option>
+                            </select>
+                        </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-outline-success btn-rounded waves-effect">Submit</button>
-                        <button type="reset" class="btn btn-outline-success btn-rounded waves-effect">Reset</button>
+                        <button type="submit" id="feedsub" class="btn btn-outline-success btn-rounded waves-effect">Submit</button>
+                        <button type="reset" id="feedres" class="btn btn-outline-success btn-rounded waves-effect">Reset</button>
                     </div>
                 </form>
                 </div>
             </div>
-        <!--/.Content-->
+            <!--/.Content-->
         </div>
     </div>
-    <!-- Fill Out Form(modal) -->
+    <!-- Feedback(modal) -->
 
     <!-- Contact Form(modal) -->
     <div class="modal fade" id="contactform" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -594,17 +565,17 @@
     <!-- end of copyright -->
 
     <!-- Scripts -->
-    <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
-    <script src="js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
-    <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
-    <script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
-    <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
-    <script src="js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
-    <script src="js/morphext.min.js"></script> <!-- Morphtext rotating text in the header -->
-    <script src="js/isotope.pkgd.min.js"></script> <!-- Isotope for filter -->
-    <script src="js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
-    <script src="js/scripts.js"></script> <!-- Custom scripts -->
-    <script src="js/mdb.min.js"></script> <!-- MDB core JavaScript -->
-    <script src="js/all.js"></script> <!-- Font Awesome -->
+    <script src="/public/js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="/public/js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
+    <script src="/public/js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+    <script src="/public/js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="/public/js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+    <script src="/public/js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
+    <script src="/public/js/morphext.min.js"></script> <!-- Morphtext rotating text in the header -->
+    <script src="/public/js/isotope.pkgd.min.js"></script> <!-- Isotope for filter -->
+    <script src="/public/js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
+    <script src="/public/js/scripts.js"></script> <!-- Custom scripts -->
+    <script src="/public/js/mdb.min.js"></script> <!-- MDB core JavaScript -->
+    <script src="/public/js/all.js"></script> <!-- Font Awesome -->
 </body>
 </html>
