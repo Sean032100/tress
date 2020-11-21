@@ -1,5 +1,5 @@
 <?php
 
-include_once("/mainclient/mainclient.html");
+include_once(dirname(__FILE__)."/../mainclient.html");
 
 ?>
